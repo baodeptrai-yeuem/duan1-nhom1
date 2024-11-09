@@ -20,7 +20,10 @@ match ($act) {
     'deleteSP' => (new productController())->deleteProduct($_GET['id']),
     'updateSP' => (new productController())->updateProduct($_GET['id']),
     'insertproduct' => (new productController())->insertProduct(),
+    'timkiem' =>  (new productController())->searchProduct(),
     default         => handleDefault($act),
+
+
 };
 
 function handleDefault($act) {

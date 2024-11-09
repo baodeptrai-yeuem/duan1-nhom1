@@ -48,7 +48,7 @@ function cateProduct(){
 }
 
 function cateName($id){
-    $sql="select ten_danhmuc from danhmuc where id_danhmuc=$id";
+    $sql="select * from danhmuc where id_danhmuc=$id";
     return $this->conn->query($sql)->fetch();
 }
 //
@@ -72,9 +72,13 @@ function findProductById($id){
     return $stmt->execute();
 }
 function updateProduct($id, $name, $img, $price, $description, $quantity, $view, $cate_id) {
-    $sql = "UPDATE sanpham SET name = ?, image = ?, price = ?, description = ?, quantity = ?, view = ?, id_cate = ? WHERE id_sanpham = ?";
+    if(empty($img)) {
+        $sql = "UPDATE sanpham SET name='$name', price=$price, description='$description', quantity=$quantity, view=$view, id_cate=$cate_id WHERE id_sanpham=$id";
+    } else {
+        $sql = "UPDATE sanpham SET name='$name', image='$img', price=$price, description='$description', quantity=$quantity, view=$view, id_cate=$cate_id WHERE id_sanpham=$id";
+    }
     $stmt = $this->conn->prepare($sql);
-    return $stmt->execute([$name, $img, $price, $description, $quantity, $view, $cate_id, $id]);
+    return $stmt->execute();
 }
 
 
@@ -84,11 +88,6 @@ function insertProduct($name, $img, $price, $description, $quantity, $view, $cat
     $stmt = $this->conn->prepare($sql);
     return $stmt->execute([$name, $img, $price, $description, $quantity, $view, $cate_id]);
 }
-
-
-
-
-
 
 }
 ?>

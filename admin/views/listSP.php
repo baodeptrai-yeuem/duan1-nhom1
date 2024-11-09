@@ -60,7 +60,7 @@
                     <td><?= $rows['description'] ?></td>
                     <td><?= $rows['quantity'] ?></td>
                     <td><?= $rows['view'] ?></td>
-                    <td><?= $rows['id_cate'] ?></td>
+                    <td><?= $rows['ten_danhmuc'] ?></td>
                     <td><a href="?act=updateSP&id=<?= $rows['id_sanpham'] ?>" class="btn btn-warning">Sửa</a></td>
                     <td>
                         <a onclick="return confirm('Bạn có chắc chắn muốn xóa không?')" href="?act=deleteSP&id=<?= $rows['id_sanpham']?>" class="btn btn-danger">Xóa</a>

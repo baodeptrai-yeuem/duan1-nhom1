@@ -23,10 +23,10 @@
             <p>Lượt xem</p><input type="text" name="view" id="" value="<?= $oneProduct['view'] ?>">
             <p>Danh mục sản phẩm</p>
             <select name="cate" id="">
-            <option value="<?= $oneProduct['id_danhmuc'] ?>"><?=$cateName["id_danhmuc"]?></option>
+            <option value="<?= $oneProduct['id_cate'] ?>"><?=$cateName["ten_danhmuc"]?></option>
                 <?php foreach ($cateProduct as $value){
                    
-                    if($oneProduct["id_danhmuc"] == $value["id_danhmuc"]){
+                    if($oneProduct["id_cate"] == $value["id_danhmuc"]){
                          
                         continue;
                     } else {
